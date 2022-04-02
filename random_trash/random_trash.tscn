@@ -19,6 +19,7 @@
 [node name="RandomTrash" type="Node2D"]
 script = ExtResource( 1 )
 textures = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
+colors = [ Color( 0.776471, 0.776471, 0.776471, 1 ), Color( 0.635294, 0.635294, 0.635294, 1 ), Color( 0.411765, 0.411765, 0.411765, 1 ), Color( 0.290196, 0.266667, 0.25098, 1 ), Color( 0.184314, 0.164706, 0.141176, 1 ) ]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
