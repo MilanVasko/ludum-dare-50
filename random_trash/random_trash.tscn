@@ -1,0 +1,24 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://random_trash/random_trash.gd" type="Script" id=1]
+[ext_resource path="res://random_trash/plank1.tres" type="Texture" id=2]
+[ext_resource path="res://random_trash/plank2.tres" type="Texture" id=3]
+[ext_resource path="res://random_trash/stick1.tres" type="Texture" id=4]
+[ext_resource path="res://random_trash/stick2.tres" type="Texture" id=5]
+[ext_resource path="res://random_trash/stick3.tres" type="Texture" id=6]
+[ext_resource path="res://random_trash/stone1.tres" type="Texture" id=7]
+[ext_resource path="res://random_trash/stone2.tres" type="Texture" id=8]
+[ext_resource path="res://random_trash/stone3.tres" type="Texture" id=9]
+[ext_resource path="res://random_trash/stone4.tres" type="Texture" id=10]
+[ext_resource path="res://random_trash/stone5.tres" type="Texture" id=11]
+[ext_resource path="res://random_trash/stone6.tres" type="Texture" id=12]
+[ext_resource path="res://random_trash/stone7.tres" type="Texture" id=13]
+[ext_resource path="res://random_trash/stone8.tres" type="Texture" id=14]
+[ext_resource path="res://random_trash/stone9.tres" type="Texture" id=15]
+
+[node name="RandomTrash" type="Node2D"]
+script = ExtResource( 1 )
+textures = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
