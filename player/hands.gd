@@ -2,7 +2,7 @@ extends Node2D
 
 var close_usable_object: Node2D = null
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if close_usable_object != null && Input.is_action_just_pressed("use"):
 		close_usable_object.use()
 

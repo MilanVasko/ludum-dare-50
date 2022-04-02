@@ -101,7 +101,7 @@ func _physics_process(delta: float) -> void:
 		speed = WALKING_SPEED
 		is_running = false
 
-	move_and_slide(direction * speed)
+	var _ignored = move_and_slide(direction * speed)
 	if direction != Vector2.ZERO:
 		var new_rotation = rotation_towards(direction)
 		rotation = lerp_angle(rotation, new_rotation, delta * 20)

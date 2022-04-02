@@ -25,7 +25,9 @@ func _on_player_died() -> void:
 	death_screen.visible = true
 
 func _on_try_again_pressed():
-	get_tree().reload_current_scene()
+	var err := get_tree().reload_current_scene()
+	assert(err == OK)
 
 func _on_main_menu_pressed():
-	get_tree().change_scene("res://main_menu/main_menu.tscn")
+	var err := get_tree().change_scene("res://main_menu/main_menu.tscn")
+	assert(err == OK)
