@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/player.png" type="Texture" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
 [ext_resource path="res://player/player_still2.png" type="Texture" id=3]
 [ext_resource path="res://player/hands.gd" type="Script" id=4]
+[ext_resource path="res://player/feet.gd" type="Script" id=5]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -19,11 +20,11 @@ radius = 30.1496
 [sub_resource type="CircleShape2D" id=3]
 radius = 114.355
 
+[sub_resource type="CircleShape2D" id=4]
+radius = 23.0868
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-
-[node name="Hands" type="Node2D" parent="."]
-script = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -36,12 +37,23 @@ speed_scale = 0.313
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hands" type="Area2D" parent="."]
+script = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hands"]
 shape = SubResource( 3 )
 
-[connection signal="area_entered" from="Area2D" to="Hands" method="_on_area_entered"]
-[connection signal="area_exited" from="Area2D" to="Hands" method="_on_area_exited"]
-[connection signal="body_entered" from="Area2D" to="Hands" method="_on_object_entered"]
-[connection signal="body_exited" from="Area2D" to="Hands" method="_on_object_exited"]
+[node name="Feet" type="Area2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Feet"]
+shape = SubResource( 4 )
+
+[connection signal="area_entered" from="Hands" to="Hands" method="_on_area_entered"]
+[connection signal="area_exited" from="Hands" to="Hands" method="_on_area_exited"]
+[connection signal="body_entered" from="Hands" to="Hands" method="_on_object_entered"]
+[connection signal="body_exited" from="Hands" to="Hands" method="_on_object_exited"]
+[connection signal="area_entered" from="Feet" to="Feet" method="_on_area_entered"]
+[connection signal="area_exited" from="Feet" to="Feet" method="_on_area_exited"]
+[connection signal="body_entered" from="Feet" to="Feet" method="_on_object_entered"]
+[connection signal="body_exited" from="Feet" to="Feet" method="_on_object_exited"]
