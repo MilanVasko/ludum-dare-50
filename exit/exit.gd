@@ -1,4 +1,4 @@
 extends Area2D
 
 func arrive() -> void:
-	print("You've escaped!")
+	get_tree().call_group("exit_each_subscriber", "_on_exit_reached")
