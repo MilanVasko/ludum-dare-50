@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://debris/debris.gd" type="Script" id=1]
+
+[node name="DebrisSpawner" type="Position2D" groups=["debris_spawner"]]
+script = ExtResource( 1 )
+__meta__ = {
+"_gizmo_extents_": 105.0
+}
+colors = [ Color( 0.941176, 0.941176, 0.941176, 1 ), Color( 0.784314, 0.784314, 0.784314, 1 ), Color( 0.54902, 0.54902, 0.54902, 1 ), Color( 0.392157, 0.392157, 0.392157, 1 ), Color( 0.156863, 0.156863, 0.156863, 1 ) ]

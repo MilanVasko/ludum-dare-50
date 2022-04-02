@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://debris/debris3.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 59.6849, 110.933 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 59.6849, 115.669 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 31.669, 99.2592 )
+
+[node name="Debris3" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -22.5362, -0.280276 )
+rotation = -0.169433
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 27.1213, 8.65327 )
+rotation = 0.18664
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( -15, 28 )
+rotation = -1.13441
+scale = Vector2( 1, 1 )
+shape = SubResource( 3 )
