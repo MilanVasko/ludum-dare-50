@@ -11,7 +11,6 @@ const STAMINA_REPLENISH_PER_SECOND := 0.1
 const STAMINA_DECAY_PER_SECOND := 0.2
 
 var dead := false
-var in_fire := false
 var is_running := false
 var stamina_depleted := false
 
@@ -20,6 +19,7 @@ var stamina := 1.0
 var coldness := 0.0
 var hunger := 0.0
 
+var health_decay_accum := 0.0
 var coldness_fill_per_second := COLDNESS_FILL_PER_SECOND
 
 func _ready():
@@ -36,28 +36,25 @@ func _process(delta: float) -> void:
 	update_hunger(delta)
 	update_coldness(delta)
 
-func _on_fire_entered() -> void:
-	in_fire = true
-
-func _on_fire_exited() -> void:
-	in_fire = false
-
 func _on_warm_area_arrive(warmth_per_second: float) -> void:
 	coldness_fill_per_second -= warmth_per_second
-	print("current coldness " + str(coldness_fill_per_second))
 
 func _on_warm_area_leave(warmth_per_second: float) -> void:
 	coldness_fill_per_second += warmth_per_second
-	print("current coldness " + str(coldness_fill_per_second))
+
+func _on_dangerous_area_arrive(damage_per_second: float) -> void:
+	health_decay_accum += damage_per_second
+
+func _on_dangerous_area_leave(damage_per_second: float) -> void:
+	health_decay_accum -= damage_per_second
 
 func update_health(delta: float) -> void:
-	var health_decay := 0.0
+	var health_decay := health_decay_accum * delta
+
 	if coldness >= 1.0:
 		health_decay += COLDNESS_HEALTH_DECAY_PER_SECOND * delta
 	if hunger >= 1.0:
 		health_decay += HUNGER_HEALTH_DECAY_PER_SECOND * delta
-	if in_fire:
-		health_decay += FIRE_HEALTH_DECAY_PER_SECOND * delta
 	if health_decay > 0.0:
 		health -= health_decay
 		get_tree().call_group("health_subscriber", "_on_health_changed", health)
