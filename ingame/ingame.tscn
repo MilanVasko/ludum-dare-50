@@ -5,7 +5,7 @@
 [ext_resource path="res://ingame_gui/ingame_gui.tscn" type="PackedScene" id=3]
 [ext_resource path="res://obstacle/obstacle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://radio/radio.tscn" type="PackedScene" id=5]
-[ext_resource path="res://exit/exit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://exit/spawn_point.tscn" type="PackedScene" id=6]
 
 [node name="Ingame" type="Node2D"]
 
@@ -27,8 +27,14 @@ position = Vector2( 629, 136 )
 [node name="Radio" parent="Fire" instance=ExtResource( 5 )]
 position = Vector2( -117, 270 )
 
-[node name="Exit" parent="." instance=ExtResource( 6 )]
-position = Vector2( 725, 633 )
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 319, 203 )
+
+[node name="ExitSpawnPoint" parent="." instance=ExtResource( 6 )]
+position = Vector2( -253, 750 )
+
+[node name="ExitSpawnPoint2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 693, 891 )
+
+[node name="ExitSpawnPoint3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1304, 453 )

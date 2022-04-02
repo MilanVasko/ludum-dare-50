@@ -39,12 +39,14 @@ shape = SubResource( 1 )
 
 [node name="Hands" type="Area2D" parent="."]
 script = ExtResource( 4 )
+player_path = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hands"]
 shape = SubResource( 3 )
 
 [node name="Feet" type="Area2D" parent="."]
 script = ExtResource( 5 )
+player_path = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Feet"]
 shape = SubResource( 4 )
