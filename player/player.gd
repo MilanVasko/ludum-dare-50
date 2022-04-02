@@ -1,15 +1,5 @@
 extends KinematicBody2D
 
-const WALKING_SPEED := 200.0
-const RUNNING_SPEED := 350.0
-const COLDNESS_FILL_PER_SECOND := 0.025
-const COLDNESS_HEALTH_DECAY_PER_SECOND := 0.005
-const HUNGER_FILL_PER_SECOND := 0.015
-const HUNGER_HEALTH_DECAY_PER_SECOND := 0.0025
-const FIRE_HEALTH_DECAY_PER_SECOND := 0.2
-const STAMINA_REPLENISH_PER_SECOND := 0.1
-const STAMINA_DECAY_PER_SECOND := 0.2
-
 var dead := false
 var is_running := false
 var stamina_depleted := false
@@ -20,7 +10,8 @@ var coldness := 0.0
 var hunger := 0.0
 
 var health_decay_accum := 0.0
-var coldness_fill_per_second := COLDNESS_FILL_PER_SECOND
+var hunger_fill_per_second := Global.HUNGER_FILL_PER_SECOND
+var coldness_fill_per_second := Global.COLDNESS_FILL_PER_SECOND
 
 func _ready():
 	get_tree().call_group("health_subscriber", "_on_health_changed", health)
@@ -48,24 +39,30 @@ func _on_dangerous_area_arrive(damage_per_second: float) -> void:
 func _on_dangerous_area_leave(damage_per_second: float) -> void:
 	health_decay_accum -= damage_per_second
 
+func _on_food_eaten(one_time_hunger_relief: float) -> void:
+	hunger -= one_time_hunger_relief
+
 func update_health(delta: float) -> void:
 	var health_decay := health_decay_accum * delta
 
 	if coldness >= 1.0:
-		health_decay += COLDNESS_HEALTH_DECAY_PER_SECOND * delta
+		health_decay += Global.COLDNESS_HEALTH_DECAY_PER_SECOND * delta
 	if hunger >= 1.0:
-		health_decay += HUNGER_HEALTH_DECAY_PER_SECOND * delta
-	if health_decay > 0.0:
-		health -= health_decay
+		health_decay += Global.HUNGER_HEALTH_DECAY_PER_SECOND * delta
+	if coldness <= 0.2 && hunger <= 0.2:
+		health_decay -= Global.GOOD_STATE_HEALTH_BONUS_PER_SECOND * delta
+
+	if health_decay != 0.0:
+		health = clamp(health - health_decay, 0, 1)
 		get_tree().call_group("health_subscriber", "_on_health_changed", health)
 		if health <= 0.0:
 			die()
 
 func update_stamina(delta: float) -> void:
 	if is_running:
-		stamina = max(stamina - STAMINA_DECAY_PER_SECOND * delta, 0.0)
+		stamina = max(stamina - Global.STAMINA_DECAY_PER_SECOND * delta, 0.0)
 	else:
-		stamina += STAMINA_REPLENISH_PER_SECOND * delta
+		stamina += Global.STAMINA_REPLENISH_PER_SECOND * delta
 		if stamina >= 1.0:
 			stamina = 1.0
 			stamina_depleted = false
@@ -76,9 +73,8 @@ func die():
 	get_tree().call_group("player_death_subscriber", "_on_player_died")
 
 func update_hunger(delta: float) -> void:
-	if hunger < 1.0:
-		hunger += HUNGER_FILL_PER_SECOND * delta
-		get_tree().call_group("hunger_subscriber", "_on_hunger_changed", hunger)
+	hunger = min(hunger + hunger_fill_per_second * delta, 1)
+	get_tree().call_group("hunger_subscriber", "_on_hunger_changed", hunger)
 
 func update_coldness(delta: float) -> void:
 	coldness = clamp(coldness + (coldness_fill_per_second * delta), 0, 1)
@@ -97,14 +93,14 @@ func _physics_process(delta: float) -> void:
 	var speed: float
 	if wants_to_run:
 		if !stamina_depleted && stamina > 0.0:
-			speed = RUNNING_SPEED
+			speed = Global.RUNNING_SPEED
 			is_running = true
 		else:
 			stamina_depleted = true
-			speed = WALKING_SPEED
+			speed = Global.WALKING_SPEED
 			is_running = false
 	else:
-		speed = WALKING_SPEED
+		speed = Global.WALKING_SPEED
 		is_running = false
 
 	var _ignored = move_and_slide(direction * speed)

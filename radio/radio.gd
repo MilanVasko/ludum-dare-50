@@ -5,7 +5,7 @@ var already_used := false
 func can_use() -> bool:
 	return !already_used
 
-func use():
+func use(_player: Node2D):
 	assert(!already_used)
 	already_used = true
 	spawn_exit()

@@ -8,7 +8,7 @@ func _process(_delta: float) -> void:
 	if player.dead:
 		return
 	if close_usable_object != null && Input.is_action_just_pressed("use"):
-		close_usable_object.use()
+		close_usable_object.use(player)
 		if close_usable_object.has_method("can_use") && !close_usable_object.can_use():
 			object_exited(close_usable_object)
 
