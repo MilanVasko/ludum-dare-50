@@ -2,11 +2,11 @@ extends KinematicBody2D
 
 const WALKING_SPEED := 200.0
 const RUNNING_SPEED := 350.0
-const COLDNESS_FILL_PER_SECOND := 0.01
-const COLDNESS_HEALTH_DECAY_PER_SECOND := 0.001
-const HUNGER_FILL_PER_SECOND := 0.005
-const HUNGER_HEALTH_DECAY_PER_SECOND := 0.001
-const FIRE_DECAY_PER_SECOND := 0.2
+const COLDNESS_FILL_PER_SECOND := 0.025
+const COLDNESS_HEALTH_DECAY_PER_SECOND := 0.005
+const HUNGER_FILL_PER_SECOND := 0.015
+const HUNGER_HEALTH_DECAY_PER_SECOND := 0.0025
+const FIRE_HEALTH_DECAY_PER_SECOND := 0.2
 const STAMINA_REPLENISH_PER_SECOND := 0.1
 const STAMINA_DECAY_PER_SECOND := 0.2
 
@@ -19,6 +19,8 @@ var health := 1.0
 var stamina := 1.0
 var coldness := 0.0
 var hunger := 0.0
+
+var coldness_fill_per_second := COLDNESS_FILL_PER_SECOND
 
 func _ready():
 	get_tree().call_group("health_subscriber", "_on_health_changed", health)
@@ -40,6 +42,14 @@ func _on_fire_entered() -> void:
 func _on_fire_exited() -> void:
 	in_fire = false
 
+func _on_warm_area_arrive(warmth_per_second: float) -> void:
+	coldness_fill_per_second -= warmth_per_second
+	print("current coldness " + str(coldness_fill_per_second))
+
+func _on_warm_area_leave(warmth_per_second: float) -> void:
+	coldness_fill_per_second += warmth_per_second
+	print("current coldness " + str(coldness_fill_per_second))
+
 func update_health(delta: float) -> void:
 	var health_decay := 0.0
 	if coldness >= 1.0:
@@ -47,7 +57,7 @@ func update_health(delta: float) -> void:
 	if hunger >= 1.0:
 		health_decay += HUNGER_HEALTH_DECAY_PER_SECOND * delta
 	if in_fire:
-		health_decay += FIRE_DECAY_PER_SECOND * delta
+		health_decay += FIRE_HEALTH_DECAY_PER_SECOND * delta
 	if health_decay > 0.0:
 		health -= health_decay
 		get_tree().call_group("health_subscriber", "_on_health_changed", health)
@@ -74,9 +84,8 @@ func update_hunger(delta: float) -> void:
 		get_tree().call_group("hunger_subscriber", "_on_hunger_changed", hunger)
 
 func update_coldness(delta: float) -> void:
-	if coldness < 1.0:
-		coldness += COLDNESS_FILL_PER_SECOND * delta
-		get_tree().call_group("coldness_subscriber", "_on_coldness_changed", coldness)
+	coldness = clamp(coldness + (coldness_fill_per_second * delta), 0, 1)
+	get_tree().call_group("coldness_subscriber", "_on_coldness_changed", coldness)
 
 func _physics_process(delta: float) -> void:
 	if dead:

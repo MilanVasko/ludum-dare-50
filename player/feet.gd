@@ -19,8 +19,10 @@ func object_entered(obj: CollisionObject2D) -> void:
 	if player.dead:
 		return
 	if obj.has_method("arrive"):
-		obj.arrive()
+		obj.arrive(player)
 
-func object_exited(_obj: CollisionObject2D) -> void:
-	# nothing
-	pass
+func object_exited(obj: CollisionObject2D) -> void:
+	if player.dead:
+		return
+	if obj.has_method("leave"):
+		obj.leave(player)

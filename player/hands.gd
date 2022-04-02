@@ -25,12 +25,12 @@ func _on_area_exited(area: CollisionObject2D) -> void:
 	object_exited(area)
 
 func object_entered(obj: CollisionObject2D) -> void:
-	if close_usable_object != null:
-		object_exited(close_usable_object)
-
 	if obj.has_method("use"):
 		var can_use: bool = !obj.has_method("can_use") || obj.can_use()
 		if can_use:
+			if close_usable_object != null:
+				object_exited(close_usable_object)
+
 			close_usable_object = obj
 			get_tree().call_group("usable_object_subscriber", "_on_usable_object_entered")
 
