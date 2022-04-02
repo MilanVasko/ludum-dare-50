@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://building/building.png" type="Texture" id=1]
 [ext_resource path="res://warm_area/warm_area.tscn" type="PackedScene" id=2]
 [ext_resource path="res://building/building.gd" type="Script" id=3]
 [ext_resource path="res://food/spawn_point.tscn" type="PackedScene" id=4]
 [ext_resource path="res://radio/spawn_point.tscn" type="PackedScene" id=5]
+[ext_resource path="res://light/gradient.png" type="Texture" id=6]
+
+[sub_resource type="OccluderPolygon2D" id=6]
+polygon = PoolVector2Array( 166.625, -25, 167.625, 20, -187.375, 22, -187.375, -455, 699.625, -463, 700.625, 13, 363.625, 13, 362.625, -30, 666.625, -29, 662.625, -426, -151.375, -421, -151.375, -21 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 420, 20.5 )
@@ -23,6 +27,10 @@ extents = Vector2( 20.5, 231.5 )
 
 [node name="Building" type="StaticBody2D"]
 script = ExtResource( 3 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2( -255.625, 227 )
+occluder = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.788235, 0.788235, 0.788235, 1 )
@@ -64,3 +72,15 @@ position = Vector2( 326, 132 )
 
 [node name="RadioSpawnPoint" parent="." instance=ExtResource( 5 )]
 position = Vector2( 322, -122 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -252, -111 )
+texture = ExtResource( 6 )
+color = Color( 0.870588, 0.615686, 0.254902, 1 )
+shadow_enabled = true
+
+[node name="Light2D2" type="Light2D" parent="."]
+position = Vector2( 265, -113 )
+texture = ExtResource( 6 )
+color = Color( 0.870588, 0.615686, 0.254902, 1 )
+shadow_enabled = true
