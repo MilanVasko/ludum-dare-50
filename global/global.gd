@@ -13,5 +13,7 @@ const BUILDING_WARMTH_PER_SECOND := 0.15
 const FIRE_WARMTH_PER_SECOND := 0.15
 const FIRE_DAMAGE_PER_SECOND := 0.2
 
+const FOOD_SPAWN_CHANCE := 0.3
+
 func _ready():
 	randomize()

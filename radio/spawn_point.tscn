@@ -1,0 +1,3 @@
+[gd_scene format=2]
+
+[node name="RadioSpawnPoint" type="Node2D" groups=["radio_spawn_point"]]

@@ -1,0 +1,3 @@
+[gd_scene format=2]
+
+[node name="FoodSpawnPoint" type="Node2D" groups=["food_spawn_point"]]
