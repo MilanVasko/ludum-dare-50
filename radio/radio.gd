@@ -28,7 +28,9 @@ func spawn_exit(player: Node2D) -> void:
 	get_tree().call_group("exit_spawn_subscriber", "_on_exit_spawned", exit, player)
 
 func show_text() -> void:
-	$HelpLabel.visible = true
+	var help_label := $HelpLabel
+	help_label.visible = true
+	help_label.global_rotation = 0
 	yield(get_tree().create_timer(Global.RADIO_TEXT_DISPLAY_TIME), "timeout")
-	$HelpLabel.visible = false
+	help_label.visible = false
 

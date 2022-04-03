@@ -25,7 +25,9 @@ autoplay = true
 max_distance = 790.0
 bus = "RadioStatic"
 
-[node name="HelpLabel" type="Label" parent="."]
+[node name="HelpLabel" type="Node2D" parent="."]
+
+[node name="HelpLabel" type="Label" parent="HelpLabel"]
 margin_left = -159.0
 margin_top = -103.0
 margin_right = -37.0

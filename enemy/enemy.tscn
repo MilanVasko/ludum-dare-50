@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://enemy/enemy.png" type="Texture" id=1]
 [ext_resource path="res://enemy/enemy.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://enemy/vision_cone.gd" type="Script" id=4]
 [ext_resource path="res://enemy/instant_detection.gd" type="Script" id=5]
 [ext_resource path="res://enemy/detection_progress.gd" type="Script" id=6]
+[ext_resource path="res://enemy/light.gd" type="Script" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 23.0868
@@ -15,6 +16,7 @@ radius = 44.5533
 
 [node name="Enemy" type="KinematicBody2D" groups=["enemy"]]
 script = ExtResource( 2 )
+rotation_time = 3.0
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 0, 0, 1 )
@@ -24,17 +26,21 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="VisionCone" type="Area2D" parent="."]
+scale = Vector2( 1, 0.789 )
 script = ExtResource( 4 )
 enemy_path = NodePath("..")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionCone"]
 polygon = PoolVector2Array( -192, -542, -25, -9, 24, -9, 195, -542 )
 
-[node name="Light2D" type="Light2D" parent="."]
+[node name="Light2D" type="Light2D" parent="VisionCone" groups=["enemy_detection_progress_subscriber"]]
 position = Vector2( 4, -341 )
 scale = Vector2( 1.727, 1.315 )
 texture = ExtResource( 3 )
 shadow_enabled = true
+script = ExtResource( 7 )
+good_color = Color( 1, 1, 1, 1 )
+bad_color = Color( 1, 0, 0, 1 )
 
 [node name="InstantDetection" type="Area2D" parent="."]
 script = ExtResource( 5 )
@@ -43,10 +49,12 @@ script = ExtResource( 5 )
 shape = SubResource( 2 )
 
 [node name="DetectionProgress" type="Node2D" parent="." groups=["enemy_detection_progress_subscriber"]]
+visible = false
 script = ExtResource( 6 )
 
 [node name="ProgressBar" type="ProgressBar" parent="DetectionProgress"]
-margin_left = -68.0
-margin_top = -52.0
-margin_right = 68.0
-margin_bottom = -38.0
+margin_left = -117.0
+margin_top = -98.0
+margin_right = 19.0
+margin_bottom = -84.0
+rect_scale = Vector2( 1.87393, 1.87393 )

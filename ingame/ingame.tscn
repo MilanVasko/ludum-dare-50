@@ -906,6 +906,60 @@ position = Vector2( 1670, 3053 )
 [node name="DebrisSpawner22" parent="DebrisSpawners" instance=ExtResource( 6 )]
 position = Vector2( 1752, 2704 )
 
+[node name="DebrisSpawner72" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 3218, 1806 )
+
+[node name="DebrisSpawner73" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 3718, 1535 )
+
+[node name="DebrisSpawner74" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 4032, 3145 )
+
+[node name="DebrisSpawner75" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 2989, 3009 )
+
+[node name="DebrisSpawner76" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 3362, 4136 )
+
+[node name="DebrisSpawner77" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 5743, 949 )
+
+[node name="DebrisSpawner78" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 4531, 212 )
+
+[node name="DebrisSpawner79" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 4912, 85 )
+
+[node name="DebrisSpawner80" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 4988, -398 )
+
+[node name="DebrisSpawner81" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 5666, -1246 )
+
+[node name="DebrisSpawner82" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 5912, -754 )
+
+[node name="DebrisSpawner83" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 5954, -288 )
+
+[node name="DebrisSpawner84" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 6403, -441 )
+
+[node name="DebrisSpawner85" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 6123, -594 )
+
+[node name="DebrisSpawner86" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 5937, -509 )
+
+[node name="DebrisSpawner87" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 5895, -1323 )
+
+[node name="DebrisSpawner88" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 4700, -416 )
+
+[node name="DebrisSpawner89" parent="DebrisSpawners" instance=ExtResource( 6 )]
+position = Vector2( 4624, -68 )
+
 [node name="DebrisSpawner23" parent="DebrisSpawners" instance=ExtResource( 6 )]
 position = Vector2( 993, 2134 )
 
@@ -1053,8 +1107,77 @@ position = Vector2( 695, 939 )
 [node name="DebrisSpawner68" parent="DebrisSpawners" instance=ExtResource( 6 )]
 position = Vector2( 2310, 1114 )
 
-[node name="Enemy" parent="." instance=ExtResource( 1 )]
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 579, -56 )
+rotation = -1.55003
+rotating_points = [ 0.0, -169.0 ]
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( -2137, 1880 )
+rotation = -0.401547
+rotating_points = [ -61.6, 87.4 ]
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( -139, -1302 )
+rotation = 2.59995
+rotating_points = [ 109.0, 244.2 ]
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( -1231, -870 )
+rotation = 1.72763
+rotating_points = [ 27.9, 154.1 ]
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 2936, -1130 )
+rotation = 3.91302
+rotating_points = [ 251.7, 112.6 ]
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( -1542, 4971 )
+rotation = 1.85878
+rotating_points = [ 244.2, 106.5 ]
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 924, 3030 )
+rotation = -4.82739
+rotating_points = [ -98.6, -276.6 ]
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 1209, 2602 )
+rotation = -6.54773
+rotating_points = [ -121.6, -266.6 ]
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( -51, 1618 )
+rotation = 1.10856
+rotating_points = [ -75.2, 63.5 ]
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 2361, 1094 )
+rotation = -6.30138
+rotating_points = [ -4.9, -182.5 ]
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 4221, 1142 )
+rotation = -0.129488
+rotating_points = [ -83.9, 55.8 ]
+
+[node name="Enemy13" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 4869, 978 )
+rotation = -1.44088
+rotating_points = [ -83.1, 55.4 ]
+
+[node name="Enemy14" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 5581, 219 )
+rotation = -1.16519
+rotating_points = [ -77.1, 85.2 ]
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( -915, 3146 )
+rotation = -0.233723
+rotating_points = [ -87.6, 85.2 ]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.34902, 0.34902, 0.34902, 1 )
