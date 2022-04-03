@@ -17,6 +17,7 @@ func use(player: Node2D) -> void:
 	$AudioStreamPlayer2D.stop()
 	spawn_exit(player)
 	show_text()
+	$Wave.visible = false
 
 func spawn_exit(player: Node2D) -> void:
 	var potential_spawn_points := get_tree().get_nodes_in_group("exit_spawn_point")
