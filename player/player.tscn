@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://explosions/explosion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://explosions/explosion5.wav" type="AudioStream" id=22]
 [ext_resource path="res://explosions/explosion1.wav" type="AudioStream" id=23]
 [ext_resource path="res://player/camera.gd" type="Script" id=24]
+[ext_resource path="res://player/thought.gd" type="Script" id=25]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
@@ -52,7 +53,7 @@ script = ExtResource( 24 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -87,6 +88,19 @@ position = Vector2( 257, 0 )
 explosion_sounds = [ ExtResource( 23 ), ExtResource( 3 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 22 ) ]
 min_delay = 5.0
 max_delay = 30.0
+
+[node name="Thought" type="Node2D" parent="." groups=["exit_spawn_subscriber"]]
+script = ExtResource( 25 )
+
+[node name="Label" type="Label" parent="Thought"]
+margin_left = -236.0
+margin_top = -137.0
+margin_right = 34.0
+margin_bottom = -106.0
+rect_scale = Vector2( 1.8458, 1.8458 )
+text = "These are my thoughts..."
+align = 1
+valign = 1
 
 [connection signal="area_entered" from="Hands" to="Hands" method="_on_area_entered"]
 [connection signal="area_exited" from="Hands" to="Hands" method="_on_area_exited"]
