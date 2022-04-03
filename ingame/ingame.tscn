@@ -621,6 +621,120 @@ position = Vector2( -3624, -1409 )
 [node name="Tree186" parent="Trees" instance=ExtResource( 11 )]
 position = Vector2( -3391, -1975 )
 
+[node name="Tree190" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -3880, -1759 )
+
+[node name="Tree191" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4166, -2013 )
+
+[node name="Tree192" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4325, -1543 )
+
+[node name="Tree193" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4699, -1251 )
+
+[node name="Tree194" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -5105, -705 )
+
+[node name="Tree195" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4762, -330 )
+
+[node name="Tree196" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4965, 248 )
+
+[node name="Tree197" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4921, 655 )
+
+[node name="Tree198" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4978, 1131 )
+
+[node name="Tree199" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4953, 1429 )
+
+[node name="Tree200" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4877, 1956 )
+
+[node name="Tree201" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -5194, 2045 )
+
+[node name="Tree202" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -5638, 2076 )
+
+[node name="Tree203" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -6089, 2305 )
+
+[node name="Tree204" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -6305, 2921 )
+
+[node name="Tree205" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -6216, 3327 )
+
+[node name="Tree206" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -6000, 3784 )
+
+[node name="Tree207" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -5505, 4108 )
+
+[node name="Tree208" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4641, 4241 )
+
+[node name="Tree209" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -5130, 4273 )
+
+[node name="Tree210" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4616, 4933 )
+
+[node name="Tree211" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4737, 4584 )
+
+[node name="Tree212" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4432, 5457 )
+
+[node name="Tree213" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -4034, 6118 )
+
+[node name="Tree214" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -3441, 6491 )
+
+[node name="Tree215" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -3043, 6466 )
+
+[node name="Tree216" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -2950, 6991 )
+
+[node name="Tree217" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -3764, 6254 )
+
+[node name="Tree218" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -2806, 7610 )
+
+[node name="Tree219" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -2399, 7924 )
+
+[node name="Tree220" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -1789, 8060 )
+
+[node name="Tree221" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -1238, 7916 )
+
+[node name="Tree222" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -899, 7340 )
+
+[node name="Tree223" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -907, 6730 )
+
+[node name="Tree224" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -712, 6069 )
+
+[node name="Tree225" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -704, 6289 )
+
+[node name="Tree226" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -356, 5814 )
+
+[node name="Tree227" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( 305, 5644 )
+
 [node name="Tree187" parent="Trees" instance=ExtResource( 11 )]
 position = Vector2( -2879, -1257 )
 
