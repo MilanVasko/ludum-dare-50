@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+onready var sprite := $Sprite
+
 var dead := false
 var is_running := false
 var stamina_depleted := false
@@ -94,19 +96,26 @@ func _physics_process(delta: float) -> void:
 	if wants_to_run:
 		if !stamina_depleted && stamina > 0.0:
 			speed = Global.RUNNING_SPEED
+			sprite.speed_scale = Global.RUNNING_SPEED / Global.WALKING_SPEED
 			is_running = true
 		else:
 			stamina_depleted = true
 			speed = Global.WALKING_SPEED
+			sprite.speed_scale = 1.0
 			is_running = false
 	else:
 		speed = Global.WALKING_SPEED
+		sprite.speed_scale = 1.0
 		is_running = false
 
 	var _ignored = move_and_slide(direction * speed)
 	if direction != Vector2.ZERO:
+		sprite.playing = true
 		var new_rotation = rotation_towards(direction)
 		rotation = lerp_angle(rotation, new_rotation, delta * 20)
+	else:
+		sprite.frame = 0
+		sprite.playing = false
 
 func rotation_towards(direction: Vector2) -> float:
 	return -direction.angle_to(Vector2.UP)
