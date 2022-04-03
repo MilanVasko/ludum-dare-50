@@ -5,8 +5,6 @@ onready var player := get_node(player_path)
 var close_usable_object: Node2D = null
 
 func _process(_delta: float) -> void:
-	if player.dead:
-		return
 	if close_usable_object != null && Input.is_action_just_pressed("use"):
 		close_usable_object.use(player)
 		if close_usable_object.has_method("can_use") && !close_usable_object.can_use():

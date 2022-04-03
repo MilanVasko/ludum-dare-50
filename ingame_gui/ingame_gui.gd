@@ -6,11 +6,9 @@ onready var hunger_bar := $Bottom/Stats/Hunger/ProgressBar
 onready var coldness_bar := $Bottom/Stats/Coldness/ProgressBar
 onready var use_label := $Bottom/Use/Label
 onready var death_screen := $DeathScreen
-onready var win_screen := $WinScreen
 
 func _ready() -> void:
 	death_screen.visible = false
-	win_screen.visible = false
 	use_label.visible = false
 
 func _on_health_changed(new_health: float) -> void:
@@ -48,6 +46,3 @@ func _on_usable_object_entered(obj: Node2D) -> void:
 func _on_usable_object_exited(_obj: Node2D) -> void:
 	use_label.visible = false
 	use_label.text = "Press E to use"
-
-func _on_exit_reached() -> void:
-	win_screen.visible = true

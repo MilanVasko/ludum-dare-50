@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://white.png" type="Texture" id=1]
+[ext_resource path="res://win/win.gd" type="Script" id=2]
+
+[node name="Win" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+
+[node name="Control" type="Panel" parent="Control/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 200.0
+margin_top = 100.0
+margin_right = -200.0
+margin_bottom = -100.0
+
+[node name="Label" type="Label" parent="Control/TextureRect/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+text = "You escaped to safety.
+
+Try again?"
+align = 1
+valign = 1
+
+[node name="TryAgain" type="Button" parent="Control/TextureRect/Control"]
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -60.0
+margin_right = -10.0
+margin_bottom = -20.0
+text = "Try again"
+
+[node name="MainMenu" type="Button" parent="Control/TextureRect/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -60.0
+margin_right = -20.0
+margin_bottom = -20.0
+text = "Main menu"
+
+[connection signal="pressed" from="Control/TextureRect/Control/TryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="Control/TextureRect/Control/MainMenu" to="." method="_on_main_menu_pressed"]

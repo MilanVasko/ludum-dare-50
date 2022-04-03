@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		detection_progress += Global.ENEMY_DETECTION_PROGRESS_PER_SECOND * delta
 		light.update_progress(detection_progress)
 		if detection_progress >= 1.0:
-			seen_player.die()
+			seen_player.die_from_gunshot()
 		rotate_towards(seen_player, delta)
 	else:
 		patrol(delta)

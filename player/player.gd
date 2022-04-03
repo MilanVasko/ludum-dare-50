@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 onready var sprite := $Sprite
 
-var dead := false
 var is_running := false
 var stamina_depleted := false
 
@@ -22,8 +21,6 @@ func _ready():
 	get_tree().call_group("coldness_subscriber", "_on_coldness_changed", coldness)
 
 func _process(delta: float) -> void:
-	if dead:
-		return
 	update_health(delta)
 	update_stamina(delta)
 	update_hunger(delta)
@@ -72,8 +69,12 @@ func update_stamina(delta: float) -> void:
 	get_tree().call_group("stamina_subscriber", "_on_stamina_changed", stamina)
 
 func die():
-	dead = true
-	get_tree().call_group("player_death_subscriber", "_on_player_died")
+	var err := get_tree().change_scene("res://death/death.tscn")
+	assert(err == OK)
+
+func die_from_gunshot() -> void:
+	var err := get_tree().change_scene("res://gunshot_death/gunshot_death.tscn")
+	assert(err == OK)
 
 func update_hunger(delta: float) -> void:
 	hunger = min(hunger + hunger_fill_per_second * delta, 1)
@@ -84,9 +85,6 @@ func update_coldness(delta: float) -> void:
 	get_tree().call_group("coldness_subscriber", "_on_coldness_changed", coldness)
 
 func _physics_process(delta: float) -> void:
-	if dead:
-		return
-
 	var direction := Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")

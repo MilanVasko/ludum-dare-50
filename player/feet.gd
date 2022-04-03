@@ -16,13 +16,9 @@ func _on_area_exited(area: CollisionObject2D) -> void:
 	object_exited(area)
 
 func object_entered(obj: CollisionObject2D) -> void:
-	if player.dead:
-		return
 	if obj.has_method("arrive"):
 		obj.arrive(player)
 
 func object_exited(obj: CollisionObject2D) -> void:
-	if player.dead:
-		return
 	if obj.has_method("leave"):
 		obj.leave(player)
