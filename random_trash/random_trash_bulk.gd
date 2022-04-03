@@ -23,7 +23,7 @@ func spawn_trash_at_position(pos: Vector2) -> void:
 
 func _draw() -> void:
 	if Engine.editor_hint:
-		draw_rect(rect, Color.red, false, 2.0)
+		draw_rect(rect, Color.red, false, 10.0)
 
 func _process(_delta: float) -> void:
 	if Engine.editor_hint:

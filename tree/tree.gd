@@ -19,3 +19,5 @@ func _ready() -> void:
 	top.texture = top_textures[randi() % top_textures.size()]
 	top.rotation = randf() * deg2rad(360)
 	top.modulate = colors[randi() % colors.size()]
+	
+	scale = Vector2.ONE * (1 + (randf() * 0.2))
