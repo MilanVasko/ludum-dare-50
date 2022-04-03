@@ -65,9 +65,10 @@ func update_stamina(delta: float) -> void:
 		stamina = max(stamina - Global.STAMINA_DECAY_PER_SECOND * delta, 0.0)
 	else:
 		stamina += Global.STAMINA_REPLENISH_PER_SECOND * delta
+		if stamina >= Global.STAMINA_USABLE_AGAIN_THRESHOLD:
+			stamina_depleted = false
 		if stamina >= 1.0:
 			stamina = 1.0
-			stamina_depleted = false
 	get_tree().call_group("stamina_subscriber", "_on_stamina_changed", stamina)
 
 func die():

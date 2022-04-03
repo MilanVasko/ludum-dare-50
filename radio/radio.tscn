@@ -22,7 +22,8 @@ shape = SubResource( 1 )
 stream = ExtResource( 3 )
 volume_db = -23.598
 autoplay = true
-max_distance = 790.0
+max_distance = 4957.0
+attenuation = 2.73208
 bus = "RadioStatic"
 
 [node name="HelpLabel" type="Node2D" parent="."]
