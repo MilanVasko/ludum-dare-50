@@ -1,6 +1,8 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=29 format=2]
 
+[ext_resource path="res://explosions/explosion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
+[ext_resource path="res://explosions/explosion2.wav" type="AudioStream" id=3]
 [ext_resource path="res://player/hands.gd" type="Script" id=4]
 [ext_resource path="res://player/feet.gd" type="Script" id=5]
 [ext_resource path="res://player/arrow.png" type="Texture" id=6]
@@ -17,6 +19,11 @@
 [ext_resource path="res://player/player_walk0009.png" type="Texture" id=17]
 [ext_resource path="res://player/player_walk0008.png" type="Texture" id=18]
 [ext_resource path="res://player/player_walk0003.png" type="Texture" id=19]
+[ext_resource path="res://explosions/explosion4.wav" type="AudioStream" id=20]
+[ext_resource path="res://explosions/explosion3.wav" type="AudioStream" id=21]
+[ext_resource path="res://explosions/explosion5.wav" type="AudioStream" id=22]
+[ext_resource path="res://explosions/explosion1.wav" type="AudioStream" id=23]
+[ext_resource path="res://player/camera.gd" type="Script" id=24]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
@@ -38,13 +45,14 @@ radius = 23.0868
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["explosion_subscriber"]]
 current = true
 zoom = Vector2( 1.735, 1.735 )
+script = ExtResource( 24 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-frame = 6
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -73,6 +81,12 @@ position = Vector2( 358, 0 )
 scale = Vector2( 0.465896, 0.465896 )
 z_index = 100
 texture = ExtResource( 6 )
+
+[node name="Explosion" parent="." instance=ExtResource( 1 )]
+position = Vector2( 257, 0 )
+explosion_sounds = [ ExtResource( 23 ), ExtResource( 3 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 22 ) ]
+min_delay = 5.0
+max_delay = 30.0
 
 [connection signal="area_entered" from="Hands" to="Hands" method="_on_area_entered"]
 [connection signal="area_exited" from="Hands" to="Hands" method="_on_area_exited"]
