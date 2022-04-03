@@ -15,7 +15,6 @@ func _process(delta: float) -> void:
 	var closest_enemy_distance := find_closest_enemy_distance()
 	var enemy_close_bus_index := AudioServer.get_bus_index("EnemyCloseMusic")
 	var ambient_bus_index := AudioServer.get_bus_index("AmbientMusic")
-	print(AudioServer.get_bus_volume_db(enemy_close_bus_index))
 	AudioServer.set_bus_volume_db(enemy_close_bus_index, transform_distance_to_enemy_db(closest_enemy_distance))
 	AudioServer.set_bus_volume_db(ambient_bus_index, transform_distance_to_ambient_db(closest_enemy_distance))
 
