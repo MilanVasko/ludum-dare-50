@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://enemy/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://food/food.tscn" type="PackedScene" id=12]
 [ext_resource path="res://fire/fire.tscn" type="PackedScene" id=13]
 [ext_resource path="res://exit/spawn_point.tscn" type="PackedScene" id=14]
+[ext_resource path="res://bodies/body.tscn" type="PackedScene" id=15]
 [ext_resource path="res://road/turn_road.png" type="Texture" id=16]
 [ext_resource path="res://road/end_of_road.png" type="Texture" id=17]
 
@@ -189,6 +190,71 @@ rotation = 1.24566
 position = Vector2( -4614, -3476 )
 rect = Rect2( 0, 0, 12000, 9500 )
 trash_count = 5000
+
+[node name="Bodies" type="Node2D" parent="."]
+
+[node name="Body" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 540, 1302 )
+
+[node name="Body2" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( -1078, 668 )
+
+[node name="Body3" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( -1655, 1403 )
+
+[node name="Body4" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( -1112, 1148 )
+
+[node name="Body5" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 1920, -465 )
+
+[node name="Body6" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 545, -1314 )
+
+[node name="Body7" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 1857, -1682 )
+
+[node name="Body8" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 3452, -827 )
+
+[node name="Body9" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 4357, -1285 )
+
+[node name="Body10" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 4776, -2066 )
+
+[node name="Body11" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 5128, 593 )
+
+[node name="Body12" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 3035, 305 )
+
+[node name="Body13" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 3249, 1501 )
+
+[node name="Body14" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 2373, 2259 )
+
+[node name="Body15" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( -104, 2611 )
+
+[node name="Body16" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( -2880, 2857 )
+
+[node name="Body17" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( -3275, 1266 )
+
+[node name="Body18" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( -3457, 70 )
+
+[node name="Body19" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 131, 3797 )
+
+[node name="Body20" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 1306, 2120 )
+
+[node name="Body21" parent="Bodies" instance=ExtResource( 15 )]
+position = Vector2( 1402, -1052 )
 
 [node name="Spawner" parent="." instance=ExtResource( 9 )]
 
