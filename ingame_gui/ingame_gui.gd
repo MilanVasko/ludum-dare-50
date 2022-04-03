@@ -45,7 +45,7 @@ func _on_usable_object_entered(obj: Node2D) -> void:
 	if obj.has_method("describe"):
 		use_label.text = "Press E to " + obj.describe()
 
-func _on_usable_object_exited(obj: Node2D) -> void:
+func _on_usable_object_exited(_obj: Node2D) -> void:
 	use_label.visible = false
 	use_label.text = "Press E to use"
 
