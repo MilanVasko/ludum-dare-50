@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/guitar.ogg-3fe483435f8be2e84ca38d01ace3ea24.oggstr"
+
+[deps]
+
+source_file="res://music/ambient/guitar.ogg"
+dest_files=[ "res://.import/guitar.ogg-3fe483435f8be2e84ca38d01ace3ea24.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

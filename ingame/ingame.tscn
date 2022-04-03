@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://enemy/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://building/building.tscn" type="PackedScene" id=7]
 [ext_resource path="res://random_trash/random_trash_bulk.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ingame/spawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://music/music.tscn" type="PackedScene" id=10]
 
 [node name="Ingame" type="Node2D"]
 
@@ -45,7 +46,6 @@ rotation = 1.64304
 [node name="Road9" parent="Roads" instance=ExtResource( 5 )]
 position = Vector2( 1461, 1126 )
 rotation = 1.48881
-scale = Vector2( 1, 1 )
 
 [node name="Road14" parent="Roads" instance=ExtResource( 5 )]
 position = Vector2( 460, 1231 )
@@ -54,7 +54,6 @@ rotation = 1.44935
 [node name="Road15" parent="Roads" instance=ExtResource( 5 )]
 position = Vector2( -537, 1378 )
 rotation = 1.40322
-scale = Vector2( 1, 1 )
 
 [node name="Road10" parent="Roads" instance=ExtResource( 5 )]
 position = Vector2( 2469, 1071 )
@@ -79,12 +78,10 @@ rotation = 1.64304
 [node name="Road6" parent="Roads" instance=ExtResource( 5 )]
 position = Vector2( 3423, -817 )
 rotation = 1.5699
-scale = Vector2( 1, 1 )
 
 [node name="Road7" parent="Roads" instance=ExtResource( 5 )]
 position = Vector2( 4444, -819 )
 rotation = 1.5699
-scale = Vector2( 1, 1 )
 
 [node name="RandomTrashAreas" type="Node2D" parent="."]
 
@@ -104,7 +101,6 @@ rotation = -1.58107
 [node name="Building2" parent="Buildings" instance=ExtResource( 7 )]
 position = Vector2( 1150, 1.99999 )
 rotation = 1.58579
-scale = Vector2( 1, 1 )
 
 [node name="Building3" parent="Buildings" instance=ExtResource( 7 )]
 position = Vector2( -208, 2724 )
@@ -125,7 +121,6 @@ rotation = -0.187504
 [node name="Building8" parent="Buildings" instance=ExtResource( 7 )]
 position = Vector2( 3100, -151 )
 rotation = -3.0872
-scale = Vector2( 1, 1 )
 
 [node name="Building9" parent="Buildings" instance=ExtResource( 7 )]
 position = Vector2( 5459, 1316 )
@@ -138,7 +133,6 @@ rotation = -1.99217
 [node name="Building11" parent="Buildings" instance=ExtResource( 7 )]
 position = Vector2( -2515, -1100 )
 rotation = -1.47218
-scale = Vector2( 1, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 319, 203 )
@@ -225,3 +219,5 @@ position = Vector2( 579, -56 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+
+[node name="Music" parent="." instance=ExtResource( 10 )]
