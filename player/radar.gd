@@ -8,9 +8,9 @@ var time_accum := 0.0
 func _ready() -> void:
 	visible = false
 
-func _on_exit_spawned(exit: Node2D, player: Node2D) -> void:
-	self.exit = exit
-	self.player = player
+func _on_exit_spawned(exit_: Node2D, player_: Node2D) -> void:
+	exit = exit_
+	player = player_
 	visible = true
 
 func _process(delta: float) -> void:

@@ -1057,7 +1057,6 @@ position = Vector2( 2310, 1114 )
 position = Vector2( 579, -56 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.34902, 0.34902, 0.34902, 1 )
 
 [node name="Music" parent="." instance=ExtResource( 10 )]
