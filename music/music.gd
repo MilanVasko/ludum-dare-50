@@ -11,7 +11,7 @@ const MIN_ENEMY_VOLUME = -40
 onready var enemies := get_tree().get_nodes_in_group("enemy")
 onready var player: Node2D = get_tree().get_nodes_in_group("player")[0]
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var closest_enemy_distance := find_closest_enemy_distance()
 	var enemy_close_bus_index := AudioServer.get_bus_index("EnemyCloseMusic")
 	var ambient_bus_index := AudioServer.get_bus_index("AmbientMusic")

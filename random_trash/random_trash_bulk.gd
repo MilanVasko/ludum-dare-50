@@ -9,7 +9,7 @@ func _ready() -> void:
 		generate_trash()
 
 func generate_trash() -> void:
-	for i in range(trash_count):
+	for _i in range(trash_count):
 		spawn_trash_at_position(Vector2(
 			rect.position.x + (randf() * rect.end.x),
 			rect.position.y + (randf() * rect.end.y)
