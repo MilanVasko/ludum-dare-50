@@ -6,5 +6,5 @@ export(Color) var bad_color: Color
 func _ready() -> void:
 	color = good_color
 
-func _on_detection_progress_changed(new_progress: float) -> void:
+func update_progress(new_progress: float) -> void:
 	color = lerp(good_color, bad_color, new_progress)

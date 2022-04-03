@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+onready var light := $VisionCone/Light2D
+
 # set from VisionCone
 var seen_player: Node2D = null
 var detection_progress := 0.0
@@ -13,12 +15,12 @@ var current_patrol_pause := -1.0
 export(float) var rotation_time: float
 
 func _ready() -> void:
-	get_tree().call_group("enemy_detection_progress_subscriber", "_on_detection_progress_changed", detection_progress)
+	light.update_progress(detection_progress)
 
 func _process(delta: float) -> void:
 	if seen_player != null:
 		detection_progress += Global.ENEMY_DETECTION_PROGRESS_PER_SECOND * delta
-		get_tree().call_group("enemy_detection_progress_subscriber", "_on_detection_progress_changed", detection_progress)
+		light.update_progress(detection_progress)
 		if detection_progress >= 1.0:
 			seen_player.die()
 		rotate_towards(seen_player, delta)
@@ -26,7 +28,7 @@ func _process(delta: float) -> void:
 		patrol(delta)
 		if detection_progress > 0.0:
 			detection_progress = max(detection_progress - Global.ENEMY_DETECTION_COOLDOWN_PER_SECOND * delta, 0)
-			get_tree().call_group("enemy_detection_progress_subscriber", "_on_detection_progress_changed", detection_progress)
+			light.update_progress(detection_progress)
 
 func rotate_towards(obj: Node2D, delta: float) -> void:
 	var current_direction = Vector2.RIGHT.rotated(rotation)
