@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://player/player.png" type="Texture" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
 [ext_resource path="res://player/player_still2.png" type="Texture" id=3]
 [ext_resource path="res://player/hands.gd" type="Script" id=4]
 [ext_resource path="res://player/feet.gd" type="Script" id=5]
+[ext_resource path="res://player/arrow.png" type="Texture" id=6]
+[ext_resource path="res://player/radar.gd" type="Script" id=7]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -51,6 +53,16 @@ player_path = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Feet"]
 shape = SubResource( 4 )
+
+[node name="Radar" type="Node2D" parent="." groups=["exit_spawn_subscriber"]]
+script = ExtResource( 7 )
+
+[node name="Arrow" type="Sprite" parent="Radar"]
+modulate = Color( 0.509804, 0.768627, 0.454902, 1 )
+position = Vector2( 358, 0 )
+scale = Vector2( 0.465896, 0.465896 )
+z_index = 100
+texture = ExtResource( 6 )
 
 [connection signal="area_entered" from="Hands" to="Hands" method="_on_area_entered"]
 [connection signal="area_exited" from="Hands" to="Hands" method="_on_area_exited"]

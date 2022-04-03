@@ -8,7 +8,7 @@ onready var use_label := $Bottom/Use/Label
 onready var death_screen := $DeathScreen
 onready var win_screen := $WinScreen
 
-func _ready():
+func _ready() -> void:
 	death_screen.visible = false
 	win_screen.visible = false
 	use_label.visible = false
@@ -28,23 +28,23 @@ func _on_coldness_changed(new_coldness: float) -> void:
 func _on_player_died() -> void:
 	death_screen.visible = true
 
-func _on_try_again_pressed():
+func _on_try_again_pressed() -> void:
 	var err := get_tree().reload_current_scene()
 	assert(err == OK)
 
-func _on_play_again_pressed():
+func _on_play_again_pressed() -> void:
 	var err := get_tree().reload_current_scene()
 	assert(err == OK)
 
-func _on_main_menu_pressed():
+func _on_main_menu_pressed() -> void:
 	var err := get_tree().change_scene("res://main_menu/main_menu.tscn")
 	assert(err == OK)
 
-func _on_usable_object_entered():
+func _on_usable_object_entered() -> void:
 	use_label.visible = true
 
-func _on_usable_object_exited():
+func _on_usable_object_exited() -> void:
 	use_label.visible = false
 
-func _on_exit_reached():
+func _on_exit_reached() -> void:
 	win_screen.visible = true
