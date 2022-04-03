@@ -40,11 +40,14 @@ func _on_main_menu_pressed() -> void:
 	var err := get_tree().change_scene("res://main_menu/main_menu.tscn")
 	assert(err == OK)
 
-func _on_usable_object_entered() -> void:
+func _on_usable_object_entered(obj: Node2D) -> void:
 	use_label.visible = true
+	if obj.has_method("describe"):
+		use_label.text = "Press E to " + obj.describe()
 
-func _on_usable_object_exited() -> void:
+func _on_usable_object_exited(obj: Node2D) -> void:
 	use_label.visible = false
+	use_label.text = "Press E to use"
 
 func _on_exit_reached() -> void:
 	win_screen.visible = true

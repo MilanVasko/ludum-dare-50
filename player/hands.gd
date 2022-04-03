@@ -32,9 +32,9 @@ func object_entered(obj: CollisionObject2D) -> void:
 				object_exited(close_usable_object)
 
 			close_usable_object = obj
-			get_tree().call_group("usable_object_subscriber", "_on_usable_object_entered")
+			get_tree().call_group("usable_object_subscriber", "_on_usable_object_entered", obj)
 
 func object_exited(obj: CollisionObject2D) -> void:
 	if close_usable_object == obj:
 		close_usable_object = null
-		get_tree().call_group("usable_object_subscriber", "_on_usable_object_exited")
+		get_tree().call_group("usable_object_subscriber", "_on_usable_object_exited", obj)
