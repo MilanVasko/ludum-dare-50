@@ -18,4 +18,13 @@ margin_right = 100.0
 margin_bottom = 50.0
 text = "Play"
 
+[node name="Label" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -50.0
+text = "Created by Milan Vasko for Ludum Dare 50 in 48 hours"
+valign = 1
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
