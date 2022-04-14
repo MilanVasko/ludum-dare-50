@@ -6,6 +6,7 @@ func _ready() -> void:
 	controls.visible = false
 	yield(get_tree().create_timer(0.5), "timeout")
 	controls.visible = true
+	$Control/TextureRect/Control/TryAgain.grab_focus()
 
 func _on_try_again_pressed():
 	var err := get_tree().change_scene("res://ingame/ingame.tscn")

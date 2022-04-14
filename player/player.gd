@@ -85,10 +85,7 @@ func update_coldness(delta: float) -> void:
 	get_tree().call_group("coldness_subscriber", "_on_coldness_changed", coldness)
 
 func _physics_process(delta: float) -> void:
-	var direction := Vector2(
-		Input.get_action_strength("right") - Input.get_action_strength("left"),
-		Input.get_action_strength("down") - Input.get_action_strength("up")
-	).normalized()
+	var direction := Input.get_vector("left", "right", "up", "down")
 
 	var wants_to_run := Input.is_action_pressed("run")
 	var speed: float
