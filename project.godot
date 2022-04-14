@@ -10,7 +10,8 @@ config_version=4
 
 [application]
 
-config/name="Ludum Dare 50"
+config/name="This Special War"
+config/description="Created for Ludum Dare 50 in 48 hours by Milan Vaško"
 run/main_scene="res://main_menu/main_menu.tscn"
 config/icon="res://icon.png"
 
