@@ -5,10 +5,8 @@ onready var stamina_bar := $Bottom/Stats/Stamina/ProgressBar
 onready var hunger_bar := $Bottom/Stats/Hunger/ProgressBar
 onready var coldness_bar := $Bottom/Stats/Coldness/ProgressBar
 onready var use_label := $Bottom/Use/Label
-onready var death_screen := $DeathScreen
 
 func _ready() -> void:
-	death_screen.visible = false
 	use_label.visible = false
 
 func _on_health_changed(new_health: float) -> void:
@@ -23,19 +21,8 @@ func _on_hunger_changed(new_hunger: float) -> void:
 func _on_coldness_changed(new_coldness: float) -> void:
 	coldness_bar.value = new_coldness * coldness_bar.max_value
 
-func _on_player_died() -> void:
-	death_screen.visible = true
-
-func _on_try_again_pressed() -> void:
-	var err := get_tree().reload_current_scene()
-	assert(err == OK)
-
 func _on_play_again_pressed() -> void:
 	var err := get_tree().reload_current_scene()
-	assert(err == OK)
-
-func _on_main_menu_pressed() -> void:
-	var err := get_tree().change_scene("res://main_menu/main_menu.tscn")
 	assert(err == OK)
 
 func _on_usable_object_entered(obj: Node2D) -> void:
