@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://explosions/explosion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
@@ -43,6 +43,9 @@ radius = 114.355
 [sub_resource type="CircleShape2D" id=4]
 radius = 23.0868
 
+[sub_resource type="CircleShape2D" id=6]
+radius = 158.71
+
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 2 )
 
@@ -53,6 +56,7 @@ script = ExtResource( 24 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
+frame = 9
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -101,11 +105,16 @@ text = "These are my thoughts..."
 align = 1
 valign = 1
 
-[connection signal="area_entered" from="Hands" to="Hands" method="_on_area_entered"]
-[connection signal="area_exited" from="Hands" to="Hands" method="_on_area_exited"]
+[node name="WalkSound" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WalkSound"]
+shape = SubResource( 6 )
+
+[connection signal="area_entered" from="Hands" to="Hands" method="_on_object_entered"]
+[connection signal="area_exited" from="Hands" to="Hands" method="_on_object_exited"]
 [connection signal="body_entered" from="Hands" to="Hands" method="_on_object_entered"]
 [connection signal="body_exited" from="Hands" to="Hands" method="_on_object_exited"]
-[connection signal="area_entered" from="Feet" to="Feet" method="_on_area_entered"]
-[connection signal="area_exited" from="Feet" to="Feet" method="_on_area_exited"]
+[connection signal="area_entered" from="Feet" to="Feet" method="_on_object_entered"]
+[connection signal="area_exited" from="Feet" to="Feet" method="_on_object_exited"]
 [connection signal="body_entered" from="Feet" to="Feet" method="_on_object_entered"]
 [connection signal="body_exited" from="Feet" to="Feet" method="_on_object_exited"]

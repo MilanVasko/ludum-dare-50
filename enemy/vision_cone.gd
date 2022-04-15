@@ -1,9 +1,9 @@
 extends Area2D
 
-signal detection_progress_changed
-signal detected
-signal seen_start
-signal seen_end
+signal detection_progress_changed(detection_progress)
+signal detected(subject)
+signal seen_start(subject)
+signal seen_end()
 
 var seen_subject: Node2D = null
 var detection_progress := 0.0
