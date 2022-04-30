@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://enemy/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
@@ -17,6 +17,11 @@
 [ext_resource path="res://bodies/body.tscn" type="PackedScene" id=15]
 [ext_resource path="res://road/turn_road.png" type="Texture" id=16]
 [ext_resource path="res://road/end_of_road.png" type="Texture" id=17]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -1567, 6084, 0, 0, 0, 0, -2295, 6078, 0, 0, 0, 0, -2459, 5872, 0, 0, 0, 0, -2926, 5595, 0, 0, 0, 0, -2690, 5140, 0, 0, 0, 0, -2303, 4941, 0, 0, 0, 0, -1808, 5306, 0, 0, 0, 0, -1332, 5746 )
+}
 
 [node name="Ingame" type="Node2D"]
 
@@ -1354,10 +1359,18 @@ position = Vector2( 5581, 219 )
 rotation = -1.16519
 rotating_points = [ -77.1, 85.2 ]
 
+[node name="Enemy15" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( -1554, 6042 )
+rotation = -1.16519
+patrolling_path_path = NodePath("../Enemy15Path")
+
 [node name="Enemy8" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( -915, 3146 )
 rotation = -0.233723
-rotating_points = [ -87.6, 85.2 ]
+rotating_points = [ -77.1, 85.2 ]
+
+[node name="Enemy15Path" type="Path2D" parent="Enemies"]
+curve = SubResource( 1 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.34902, 0.34902, 0.34902, 1 )
