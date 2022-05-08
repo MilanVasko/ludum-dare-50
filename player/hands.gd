@@ -11,7 +11,7 @@ func _process(_delta: float) -> void:
 			_on_object_exited(close_usable_object)
 
 func _on_object_entered(obj: CollisionObject2D) -> void:
-	if obj.has_method("use"):
+	if obj.has_method("use") && is_object_visible(obj):
 		var can_use: bool = !obj.has_method("can_use") || obj.can_use()
 		if can_use:
 			if close_usable_object != null:
@@ -24,3 +24,13 @@ func _on_object_exited(obj: CollisionObject2D) -> void:
 	if close_usable_object == obj:
 		close_usable_object = null
 		get_tree().call_group("usable_object_subscriber", "_on_usable_object_exited", obj)
+
+func is_object_visible(obj: CollisionObject2D) -> bool:
+	return get_world_2d().direct_space_state.intersect_ray(
+		global_position,
+		obj.global_position,
+		[],
+		~Global.LAYER_WARM_AREA,
+		true,
+		true
+	)["collider"] == obj

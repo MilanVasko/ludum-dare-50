@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://building/building.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://spawner/spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://exit/spawn_point.tscn" type="PackedScene" id=4]
+
+[node name="RadioFromOutside" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -5, 194 )
+
+[node name="Building" parent="." instance=ExtResource( 1 )]
+position = Vector2( -28, -369 )
+rotation = 3.14159
+
+[node name="Spawner" parent="." instance=ExtResource( 3 )]
+
+[node name="ExitSpawnPoint" parent="." instance=ExtResource( 4 )]
+position = Vector2( 821, -223 )

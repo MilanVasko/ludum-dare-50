@@ -23,5 +23,7 @@ const ENEMY_PATROL_PAUSE := 3.0
 
 const RADIO_TEXT_DISPLAY_TIME := 2.0
 
+const LAYER_WARM_AREA := 0b10
+
 func _ready():
 	randomize()
