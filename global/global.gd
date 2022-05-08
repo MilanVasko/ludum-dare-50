@@ -27,3 +27,23 @@ const LAYER_WARM_AREA := 0b10
 
 func _ready():
 	randomize()
+
+func is_any_object_visible(beholder: Node2D, subject: CollisionObject2D) -> bool:
+	return beholder.get_world_2d().direct_space_state.intersect_ray(
+		beholder.global_position,
+		subject.global_position,
+		[],
+		~Global.LAYER_WARM_AREA,
+		true,
+		true
+	)["collider"] == subject
+
+func is_material_object_visible(beholder: Node2D, subject: CollisionObject2D) -> bool:
+	return beholder.get_world_2d().direct_space_state.intersect_ray(
+		beholder.global_position,
+		subject.global_position,
+		[],
+		~Global.LAYER_WARM_AREA,
+		true,
+		false
+	)["collider"] == subject
